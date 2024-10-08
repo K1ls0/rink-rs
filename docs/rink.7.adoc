@@ -724,6 +724,9 @@ rationals.
 - `asinh(x)`: Inverse hyperbolic sine function.
 - `acosh(x)`: Inverse hyperbolic cosine function.
 - `atanh(x)`: Inverse hyperbolic tangent function.
+- `floor(x)`: round up to the next lower whole number.
+- `ceil(x)`: round up to the next whole number.
+- `round(x)`: round up or down to the nearest whole number.
 
 ifndef::website[]
 See also
