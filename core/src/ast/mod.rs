@@ -121,6 +121,9 @@ pub enum Function {
     Log,
     Hypot,
     Atan2,
+    Floor,
+    Ceil,
+    Round,
 }
 
 impl Function {
@@ -146,6 +149,9 @@ impl Function {
             Function::Log => "log",
             Function::Hypot => "hypot",
             Function::Atan2 => "atan2",
+            Function::Floor => "floor",
+            Function::Ceil => "ceil",
+            Function::Round => "round",
         }
     }
 
@@ -171,6 +177,9 @@ impl Function {
             "log" => Function::Log,
             "hypot" => Function::Hypot,
             "atan2" => Function::Atan2,
+            "floor" => Function::Floor,
+            "ceil" => Function::Ceil,
+            "round" => Function::Round,
             _ => return None,
         };
         Some(func)
@@ -245,6 +254,9 @@ mod tests {
         Function::Log,
         Function::Hypot,
         Function::Atan2,
+        Function::Floor,
+        Function::Ceil,
+        Function::Round,
     ];
 
     #[test]

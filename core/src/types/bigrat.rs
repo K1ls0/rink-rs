@@ -65,6 +65,24 @@ impl BigRat {
         }
     }
 
+    pub fn floor(&self) -> BigRat {
+        BigRat {
+            inner: self.inner.floor(),
+        }
+    }
+
+    pub fn ceil(&self) -> BigRat {
+        BigRat {
+            inner: self.inner.ceil(),
+        }
+    }
+
+    pub fn round(&self) -> BigRat {
+        BigRat {
+            inner: self.inner.round(),
+        }
+    }
+
     pub fn as_float(&self) -> f64 {
         self.inner.to_f64().unwrap()
     }

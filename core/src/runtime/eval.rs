@@ -427,6 +427,48 @@ pub(crate) fn eval_expr(ctx: &Context, expr: &Expr) -> Result<Value, QueryError>
                         }))
                     }
                 ),
+                Function::Floor => func!(
+                    fn floor(num: Number) {
+                        match &num.value {
+                            Numeric::Rational(r) => Ok(Value::Number(Number {
+                                value: Numeric::Rational(r.floor()),
+                                unit: num.unit.clone(),
+                            })),
+                            Numeric::Float(f) => Ok(Value::Number(Number {
+                                value: Numeric::Float(f.floor()),
+                                unit: num.unit.clone(),
+                            })),
+                        }
+                    }
+                ),
+                Function::Ceil => func!(
+                    fn ceil(num: Number) {
+                        match &num.value {
+                            Numeric::Rational(r) => Ok(Value::Number(Number {
+                                value: Numeric::Rational(r.ceil()),
+                                unit: num.unit.clone(),
+                            })),
+                            Numeric::Float(f) => Ok(Value::Number(Number {
+                                value: Numeric::Float(f.ceil()),
+                                unit: num.unit.clone(),
+                            })),
+                        }
+                    }
+                ),
+                Function::Round => func!(
+                    fn round(num: Number) {
+                        match &num.value {
+                            Numeric::Rational(r) => Ok(Value::Number(Number {
+                                value: Numeric::Rational(r.round()),
+                                unit: num.unit.clone(),
+                            })),
+                            Numeric::Float(f) => Ok(Value::Number(Number {
+                                value: Numeric::Float(f.round()),
+                                unit: num.unit.clone(),
+                            })),
+                        }
+                    }
+                ),
             }
         }
         Expr::Error { ref message } => Err(QueryError::generic(message.clone())),
